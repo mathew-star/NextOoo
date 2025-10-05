@@ -1,5 +1,8 @@
 import { Inter } from 'next/font/google';
-import ThemeProvider from '@/components/providers/ThemeProvider';
+import Providers from '@/components/providers/Provider';
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
+
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -45,9 +48,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 dark:bg-gray-950 dark:text-white`}>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <Providers>
+          <Header />
+          <main className="max-w-5xl mx-auto p-4 h-screen">{children}</main>
+        </Providers>
+        <Footer />
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
 'use client';
 
 import useThemeStore from '@/store/useThemeStore';
+import { Moon } from 'lucide-react';
+import { Sun } from 'lucide-react';
 
 /**
  * ThemeToggle Component
@@ -11,9 +13,9 @@ export default function ThemeToggle() {
     const setTheme = useThemeStore((state) => state.setTheme);
 
   const themes = [
-    { value: 'light', label: 'Light', icon: '☀️' },
-    { value: 'dark', label: 'Dark', icon: '🌙' },
-    { value: 'system', label: 'System', icon: '💻' },
+    { value: 'light', label: 'Light', icon: <Sun /> },
+    { value: 'dark', label: 'Dark', icon: <Moon /> },
+
   ];
 
   return (
@@ -37,7 +39,6 @@ export default function ThemeToggle() {
           <span className="text-lg" role="img" aria-hidden="true">
             {themeOption.icon}
           </span>
-          <span className="hidden sm:inline">{themeOption.label}</span>
         </button>
       ))}
     </div>

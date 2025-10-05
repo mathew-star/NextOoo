@@ -1,15 +1,15 @@
-// src/app/page.js (server component)
+// src/app/posts/page.js
 import React, { Suspense } from 'react';
 import PostsClient from '@/components/posts/PostsClient';
 import PostSkeleton from '@/components/ui/PostSkeleton';
+import ErrorBoundary from '@/components/ui/ErrorBoundary';
 
-export default function Home() {
+export default function PostsPage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Posts</h1>
+    <ErrorBoundary>
       <Suspense fallback={<PostSkeleton />}>
         <PostsClient />
       </Suspense>
-    </div>
+    </ErrorBoundary>
   );
 }
